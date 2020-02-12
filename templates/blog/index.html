@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}Samiser{% endblock %}
+
+{% block content %}
+<img style="width: 270px;" src="{% static "blog/images/bunny.jpg" %}"></img>
+	<h1>Home</h1>
+	<p>
+		Hello and welcome to my website.
+		Feel free to have a look about.
+		Use the sidebar to navigate the site.
+	</p>
+	{% if post %}
+	<hr>
+	<h1>Latest Blog Post:</h1>
+	<h2 class=title>
+		<a href="{{ post.get_absolute_url }}">
+		{{ post.title }}
+		</a>
+	</h2>
+	<p class="date">
+		Published {{ post.publish }} by {{ post.author }}
+	</p>
+	{{ post.body|truncatewords:30|linebreaks }}
+	<hr>
+	{% endif %}
+
+{% endblock %}

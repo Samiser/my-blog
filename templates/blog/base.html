@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<link href="{% static "blog/css/style.css" %}" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=0.9">
+	<script type="text/javascript" src="{% static "blog/js/main.js" %}"></script>
+</head>
+<body>
+	<div id="main">
+	<span id="sidebar-button" onclick="toggleNav()">&#9776;</span>
+	<div id="content">
+		<h1 id="main-title">Samiser</h1>
+		{% block content %}
+		{% endblock %}
+	</div>
+	</div>
+	<div id="sidebar">
+		<a href="/">Home</a>
+		<a href="/about/">About</a>
+		<a href="/blog/">Blog</a>
+	</div>
+</body>
+</html>
